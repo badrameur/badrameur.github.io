@@ -24,17 +24,18 @@ Puis ouvrir http://localhost:4173
 | `index.html` | Page d'entrée française |
 | `en/index.html` | Page d'entrée anglaise (`/en/`) |
 | `assets/` | Bundle JS/CSS et polices |
-| `content-customizer.js` | Surcouche qui personnalise le contenu après le rendu |
 | `cv/` | CV au format PDF proposé au téléchargement |
 
 ## Contenu
 
-Le texte du site vit à deux endroits : les données françaises et anglaises
-sont dans le bundle `assets/index-C53yPSiq.js`, et `content-customizer.js`
-réécrit une partie de ces textes dans le DOM après le premier rendu. Une
-modification de contenu doit être faite aux deux endroits lorsque le champ
-concerné est repris par la surcouche, sinon elle sera écrasée.
+Tout le texte du site — français et anglais — vit dans le bundle
+`assets/index-C53yPSiq.js`, dans un objet `{fr: {...}, en: {...}}`.
+Chaque section (hero, about, experience, projects, skills, certs, education,
+languages, cv, contact) y a ses données.
 
 Les métadonnées de référencement (titre, description, Open Graph, JSON-LD)
 sont statiques dans `index.html` et `en/index.html`, et doivent être
 modifiées séparément du bundle.
+
+Le CV PDF servi depuis `cv/` est généré depuis le document Word source
+conservé hors dépôt.
