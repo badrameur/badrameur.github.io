@@ -1,0 +1,6 @@
+@media (max-width: 899px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .hero-grid { gap: 3rem; }
+  .stats { max-width: 540px; }
+  .scrim { background: linear-gradient(#08070d8c, #08070dc7); }
+}

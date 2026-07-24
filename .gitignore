@@ -1,0 +1,11 @@
+# Réglages Claude Code locaux (personnels, non partagés)
+.claude/settings.local.json
+
+# Dossiers de travail
+outputs/
+work/
+
+# Système
+Thumbs.db
+desktop.ini
+.DS_Store
