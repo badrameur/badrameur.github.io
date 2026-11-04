@@ -80,5 +80,22 @@
   <body>
     <div id="root"></div>
     <script defer src="/assets/portfolio-enhancements.js?v=83e6378"></script>
+    <script>
+      (() => {
+        const update = () => {
+          const link = document.querySelector('#hero a[href$=".pdf"]');
+          if (!link) return false;
+          const label = location.pathname.startsWith('/en/') ? 'View resume ' : 'Voir le CV ';
+          if (link.firstChild?.nodeType === Node.TEXT_NODE) link.firstChild.textContent = label;
+          const arrow = link.querySelector('.cmd-arrow');
+          if (arrow) arrow.textContent = '↗';
+          return true;
+        };
+        if (!update()) {
+          const observer = new MutationObserver(() => { if (update()) observer.disconnect(); });
+          observer.observe(document.getElementById('root'), {childList:true, subtree:true});
+        }
+      })();
+    </script>
   </body>
 </html>
