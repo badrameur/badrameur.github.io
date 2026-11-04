@@ -104,3 +104,20 @@
 @keyframes edu-reveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media(max-width:600px){.edu-card-cover{min-height:215px}.edu-card-timeline li{grid-template-columns:1fr;gap:.2rem}.edu-card-intro{right:4rem}}
 @media(prefers-reduced-motion:reduce){.edu-card,.edu-card-image,.edu-card-open,.edu-card-body{transition:none;animation:none}}
+
+/* Keep the section rail legible above moving page content. */
+@media (min-width:1080px){
+  .rail{left:10px;width:52px;padding:9px 5px;background:#0b0a11f2;border:1px solid #ceb27a30;box-shadow:0 12px 36px #000a,0 0 0 1px #0008;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:4px}
+  .rail-list{gap:2px}
+  .rail-item{position:relative;min-height:36px;justify-content:center;gap:0;padding:6px 4px;border-radius:2px;transition:color .28s var(--ease),background .28s var(--ease)}
+  .rail-item:hover,.rail-item:focus-visible{background:#d3ac6f18;color:var(--text)}
+  .rail-item.is-active{background:#d3ac6f12;color:var(--gold)}
+  .rail-idx{min-width:15px;opacity:.8;text-align:center;transition:opacity .28s var(--ease)}
+  .rail-item.is-active .rail-idx{opacity:1}
+  .rail-tick{width:12px;flex:none;margin-left:3px;transition:width .35s var(--ease)}
+  .rail-item.is-active .rail-tick{width:16px}
+  .rail-label,.rail-item.is-active .rail-label{position:absolute;left:calc(100% + 13px);top:50%;z-index:2;width:max-content;max-width:180px;padding:.5rem .7rem;border:1px solid #d3ac6f55;background:#121019f7;box-shadow:0 9px 26px #000b;color:var(--text);opacity:0;pointer-events:none;transform:translate(-6px,-50%);transition:opacity .25s ease,transform .3s var(--ease)}
+  .rail-item:hover .rail-label,.rail-item:focus-visible .rail-label,.rail-item.is-active:hover .rail-label,.rail-item.is-active:focus-visible .rail-label{opacity:1;transform:translate(0,-50%)}
+  .rail-progress{left:50%;top:calc(100% + 12px);height:38px;transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion:reduce){.rail-item,.rail-idx,.rail-tick,.rail-label{transition:none}}
