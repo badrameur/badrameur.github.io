@@ -44,3 +44,27 @@
 @keyframes modal-rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
 @media(max-width:600px){.project-modal-backdrop{padding:.65rem}.project-modal{max-height:94vh;padding:1.5rem;clip-path:none}.project-modal-actions .cmd{width:100%;justify-content:center}}
 @media(prefers-reduced-motion:reduce){.project-modal-backdrop,.project-modal{animation:none}}
+
+/* Education imagery and verified certificates */
+.p-certs .edu-item{display:grid;grid-template-columns:minmax(0,1fr) 136px;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.p-certs .edu-item:nth-child(2) .edu-visual img{object-position:30% center}
+.edu-visual{position:relative;margin:0;overflow:hidden;border:1px solid #d5b27666;background:#101520;box-shadow:0 12px 28px #0006;clip-path:polygon(0 0,88% 0,100% 16%,100% 100%,0 100%)}
+.edu-visual img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.82) contrast(1.07);transition:transform .45s ease,filter .45s ease}
+.edu-item:hover .edu-visual img{transform:scale(1.06);filter:saturate(1.06) contrast(1.04)}
+.edu-visual figcaption{position:absolute;left:0;right:0;bottom:0;padding:.45rem .5rem;background:linear-gradient(transparent,#05070be8);font-size:.48rem;letter-spacing:.04em;line-height:1.2}
+.edu-visual figcaption a{color:#eee6d6;text-decoration:none}
+.edu-visual figcaption a:hover{text-decoration:underline}
+.cert-row--link{color:inherit;text-decoration:none;cursor:pointer;transition:background .25s ease,padding-left .25s ease,border-color .25s ease}
+.cert-row--link:hover{background:#d4ae7315;padding-left:.8rem;border-color:#d4ae73a0}
+.cert-row--link:focus-visible,.edu-visual a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.cert-row--link .cert-check{color:var(--gold)}
+.project-modal-backdrop,.project-modal-backdrop *{cursor:default!important}
+.project-modal-backdrop a,.project-modal-backdrop button{cursor:pointer!important}
+@media(max-width:680px){.p-certs .edu-item{grid-template-columns:1fr}.edu-visual{width:min(100%,320px)}.edu-visual img{aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.edu-visual img,.cert-row--link{transition:none}}
+/* Education cards: give the real campus images room and readable credits. */
+.p-certs .edu-item{grid-template-columns:minmax(0,1fr) 176px}
+.edu-visual{clip-path:none}
+.edu-visual img{aspect-ratio:16/10}
+.edu-visual figcaption{position:static;padding:.42rem .5rem;background:#10131b;font-size:.47rem}
+@media(max-width:680px){.about-grid{grid-template-columns:minmax(0,1fr)}.about-lead-col,.about-facts{min-width:0;max-width:100%}.p-certs .edu-item{grid-template-columns:1fr}}
