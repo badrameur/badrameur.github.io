@@ -1,0 +1,1 @@
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.addEventListener('pointermove',e=>{const card=e.target.closest?.('.proj-card');if(!card)return;const box=card.getBoundingClientRect();card.style.setProperty('--mx',`${e.clientX-box.left}px`);card.style.setProperty('--my',`${e.clientY-box.top}px`)});})();
