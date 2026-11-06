@@ -4,7 +4,7 @@
 .experience-portrait::before { content: ""; position: absolute; z-index: 0; bottom: 10%; width: min(90%, 24rem); aspect-ratio: 1; border: 1px solid var(--line); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--gold) 10%, transparent), transparent 70%); opacity: .65; }
 .experience-portrait::after { content: ""; position: absolute; z-index: 0; bottom: 9%; width: min(92%, 25rem); height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
 .experience-pose { position: absolute; z-index: 1; bottom: 5%; max-width: 100%; max-height: min(72vh, 680px); object-fit: contain; object-position: bottom center; opacity: 0; filter: saturate(.78) contrast(1.04) brightness(.9); transform: translateY(26px) scale(.97); transition: opacity .48s var(--ease), transform .62s var(--ease); will-change: transform, opacity; }
-.experience-pose.is-active { opacity: .48; transform: translateY(0) scale(1); }
+.experience-pose.is-active { opacity: .9; transform: translateY(0) scale(1); }
 .experience-pose:nth-of-type(2).is-active { transform: translateY(0) scale(1.025); }
 @media (max-width: 899px) { .experience-workspace { display: block; } .experience-portrait { position: relative; top: auto; min-height: 54vh; margin: 2rem 0 1rem; } .experience-pose { max-height: 51vh; } }
 @media (prefers-reduced-motion: reduce) { .experience-pose, .experience-pose.is-active { transition: opacity .12s linear; transform: none; } }
