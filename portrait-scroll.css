@@ -1,0 +1,69 @@
+.scroll-portrait {
+  --portrait-progress: 0;
+  position: fixed;
+  z-index: 12;
+  top: 50%;
+  right: clamp(1.5rem, 7vw, 9rem);
+  width: clamp(180px, 23vw, 360px);
+  max-height: min(72vh, 680px);
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  clip-path: inset(12% 0 12% 0);
+  transform: translate3d(20%, -50%, 0) rotate(5deg) scale(.86);
+  transition: opacity .35s ease;
+  will-change: transform, opacity, clip-path;
+}
+
+.scroll-portrait::before,
+.scroll-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scroll-portrait::before {
+  border: 1px solid rgba(211, 172, 111, .52);
+  box-shadow: 0 0 0 1px rgba(8, 7, 13, .72) inset, 0 18px 60px rgba(0, 0, 0, .42);
+}
+
+.scroll-portrait::after {
+  background: linear-gradient(180deg, rgba(8,7,13,.22), transparent 35%, transparent 72%, rgba(8,7,13,.72));
+  mix-blend-mode: multiply;
+}
+
+.scroll-portrait.is-visible {
+  opacity: 1;
+  clip-path: inset(calc(9% * (1 - var(--portrait-progress))) 0 calc(9% * (1 - var(--portrait-progress))) 0);
+  transform: translate3d(calc(20% * (1 - var(--portrait-progress))), calc(-50% + (24px * (1 - var(--portrait-progress)))), 0) rotate(calc(5deg - (8deg * var(--portrait-progress)))) scale(calc(.86 + (.14 * var(--portrait-progress))));
+}
+
+.scroll-portrait img {
+  width: 100%;
+  height: 100%;
+  max-height: inherit;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(.82) contrast(1.04) brightness(.86);
+  transform: translateY(calc(42px * (1 - var(--portrait-progress)))) scale(calc(1.08 - (.08 * var(--portrait-progress))));
+  will-change: transform;
+}
+
+@media (max-width: 899px) {
+  .scroll-portrait {
+    top: auto;
+    bottom: 2.4rem;
+    right: 1.25rem;
+    width: min(42vw, 235px);
+    max-height: 48vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-portrait,
+  .scroll-portrait.is-visible,
+  .scroll-portrait img { transform: translate3d(0, -50%, 0) scale(1); }
+}
